@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WATCH MOVIES AND SERIES ; MADE BY ANUJ YADAV</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+  <h1>🎬 WATCH MOVIES AND SERIES<br><span style="font-size:1.1rem;font-weight:400;letter-spacing:1px;">MADE BY ANUJ YADAV</span></h1>
+    <form id="searchForm">
+      <input type="text" id="searchInput" placeholder="Search for a movie (IMDB)..." autocomplete="off" required />
+      <button type="submit">🔍</button>
+    </form>
+    <div class="search-tip">Tip: For best results, search the exact movie name. <br>Check its full name on <a href='https://www.imdb.com/' target='_blank'>IMDb</a> and then search here!</div>
+    <div id="movieInfo" class="movie-info">
+      <div class="search-prompt">
+        <span class="crazy-anim">🎬 Search a movie to begin!</span>
+      </div>
+    </div>
+    <div id="playerContainer" class="player-container" style="display:none;"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
