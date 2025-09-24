@@ -1,9 +1,8 @@
-// OMDb API key provided by user
-const OMDB_API_KEY = 'fec04095';
 const searchForm = document.getElementById('searchForm');
 const searchInput = document.getElementById('searchInput');
 const movieInfo = document.getElementById('movieInfo');
 const playerContainer = document.getElementById('playerContainer');
+
 
 
 
@@ -14,7 +13,8 @@ async function handleSearch(query) {
   movieInfo.innerHTML = '<span>Loading...</span>';
   let data = null;
   try {
-    const res = await fetch(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&t=${encodeURIComponent(query)}`);
+    // Call the Vercel serverless function instead of OMDb directly
+    const res = await fetch(`/api/fetch-movie?title=${encodeURIComponent(query)}`);
     data = await res.json();
     if (data.Response === 'False') {
       movieInfo.innerHTML = `<span style='color:#ff6b6b;'>Movie not found on IMDb.<br>Try searching the exact name from <a href='https://www.imdb.com/' target='_blank'>IMDb</a>.</span>`;
