@@ -1,3 +1,25 @@
+/* Credit styling */
+.anuj-credit {
+  margin-top: -1.2rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  color: #ffe66d;
+  text-shadow: 0 2px 8px #1a298055;
+  animation: creditPop 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.anuj-credit span {
+  color: #26d0ce;
+  font-size: 1.15em;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 12px #26d0ce55;
+}
+@keyframes creditPop {
+  0% { opacity: 0; transform: scale(0.7) translateY(-20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
 .movie-anim {
   animation: movieFadeIn 0.9s cubic-bezier(.68,-0.55,.27,1.55);
 }
@@ -59,16 +81,33 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 70% 20%, #ffe66d33 0%, transparent 60%),
+              radial-gradient(circle at 20% 80%, #26d0ce33 0%, transparent 70%),
+              radial-gradient(circle at 80% 80%, #ff6b6b22 0%, transparent 70%);
+  opacity: 0.7;
 }
 .container {
-  background: rgba(20, 20, 30, 0.95);
+  background: rgba(20, 20, 30, 0.97);
   border-radius: 32px;
   box-shadow: 0 8px 40px 0 #000a, 0 1.5px 8px 0 #26d0ce99;
-  padding: 3rem 2.5rem 2.5rem 2.5rem;
-  max-width: 480px;
-  width: 100%;
+  padding: 3.5rem 3.5rem 2.8rem 3.5rem;
+  max-width: 700px;
+  width: 96vw;
   text-align: center;
   animation: popIn 1s cubic-bezier(.68,-0.55,.27,1.55);
+  margin: 3.5vh auto 3.5vh auto;
+  position: relative;
+  z-index: 1;
 }
 @keyframes popIn {
   0% { transform: scale(0.7) rotate(-8deg); opacity: 0; }
@@ -215,10 +254,10 @@ h1 {
   0% { transform: scale(0.7) rotate(-8deg); opacity: 0; }
   100% { transform: scale(1) rotate(0); opacity: 1; }
 }
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .container {
     padding: 1.2rem 0.5rem;
-    max-width: 98vw;
+    max-width: 99vw;
   }
   .movie-info .details {
     flex-direction: column;
