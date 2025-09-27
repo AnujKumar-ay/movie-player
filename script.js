@@ -1,3 +1,21 @@
+// Make the logo/title clickable to reset the app
+document.addEventListener('DOMContentLoaded', () => {
+  const logo = document.getElementById('logo');
+  if (logo) {
+    logo.style.cursor = 'pointer';
+    logo.addEventListener('click', () => {
+      searchInput.value = '';
+      playerContainer.style.display = 'none';
+      movieInfo.innerHTML = `
+        <div class="search-prompt">
+          <span class="crazy-anim">🎬 Search a movie to begin!</span>
+        </div>
+      `;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+});
+
 const searchForm = document.getElementById('searchForm');
 const searchInput = document.getElementById('searchInput');
 const movieInfo = document.getElementById('movieInfo');
